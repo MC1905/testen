@@ -1,0 +1,36 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hypotheek Berekening</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Bereken uw maximale hypotheek</h1>
+
+        <div class="form-group">
+            <label for="income">Voer uw jaarlijkse inkomen in:</label>
+            <input type="number" id="income" placeholder="Uw inkomen">
+        </div>
+
+        <div class="form-group">
+            <label for="partnerIncome">Heeft u een partner? Voer het inkomen van uw partner in (optioneel):</label>
+            <input type="number" id="partnerIncome" placeholder="Partner inkomen">
+        </div>
+
+        <div class="form-group">
+            <label for="postcode">Voer uw postcode in:</label>
+            <input type="text" id="postcode" placeholder="1234AB">
+        </div>
+
+        <button class="calculate-btn" onclick="calculateMortgage()">Bereken Hypotheek</button>
+
+        <p id="result"></p>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
