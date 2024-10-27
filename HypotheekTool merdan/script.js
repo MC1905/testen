@@ -5,19 +5,29 @@ function calculateMortgage() {
     const postcode = document.getElementById("postcode").value;
     const fixedPeriod = parseInt(document.getElementById("fixedPeriod").value);
 
+    // Vooraf ingestelde verboden postcodes
     const forbiddenPostcodes = ["9679", "9681", "9682"];
     const rates = { 1: 0.02, 5: 0.03, 10: 0.035, 20: 0.045, 30: 0.05 };
     const factor = 4.25;
 
-    // Validate inputs
+    // Validate income input
     if (isNaN(income) || income <= 0) {
         document.getElementById("result").innerText = "Voer een geldig jaarinkomen in.";
         return;
     }
-    if (forbiddenPostcodes.includes(postcode.slice(0, 4))) {
+
+    // Validatie van postcode formaat en controle op verboden postcodes
+    if (!/^\d{4}$/.test(postcode)) {  // Controleren of postcode exact vier cijfers bevat
+        document.getElementById("result").innerText = "Voer een geldige viercijferige postcode in.";
+        return;
+    }
+
+    if (forbiddenPostcodes.includes(postcode)) {
         document.getElementById("result").innerText = "Hypotheek aanvragen voor dit postcodegebied is niet toegestaan.";
         return;
     }
+
+    // Validate fixed period
     if (!(fixedPeriod in rates)) {
         document.getElementById("result").innerText = "Ongeldige rentevaste periode.";
         return;
